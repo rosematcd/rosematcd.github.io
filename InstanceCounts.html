@@ -15,7 +15,7 @@
         <div>
             <label id="CurrentMapTypeTitle" style="text-align: center"><h1>Instance Count Maps</h1></label>
         </div>
-        <div style="display:block; text-align: center; ">
+        <div style="display:block; text-align: center; z-index: 2;">
             <label style="margin-right: 5%;">Select Map Type: </label>
             <select id="MapTypeSelector">
                 <option value="Material" >Material</option>
@@ -26,7 +26,7 @@
             <button onclick="sendSelection()">Update</button>
         </div>
 
-        <div class="img-row-wrapper">
+        <div class="img-row-wrapper" style="margin-top: -8%;">
             <div id="Hereford-Instances" class="img-container">
                 <div id="Hereford-Base">
                     <img class="base-img" src="Hereford_BaseMap/Hereford_Mapping_BaseMapImage.png">
