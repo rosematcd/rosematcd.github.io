@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="allStyles.css"> 
+    </head>
+    
+    <body>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="DressTerms.html">Localizations</a>
+            <a class="navbar-curr" href="InstanceCounts.html">Heat Maps</a>
+            <a href="Networks.html">Networks</a>
+        </div>
+
+        <div>
+            <label id="CurrentMapTypeTitle" style="text-align: center"><h1>Instance Count Maps</h1></label>
+        </div>
+        <div style="display:block; text-align: center; ">
+            <label style="margin-right: 5%;">Select Map Type: </label>
+            <select id="MapTypeSelector">
+                <option value="Material" >Material</option>
+                <option value="Production" >Production</option>
+                <option value="Association" >Association</option>
+                <option value="Exchange" >Exchange</option>
+            </select>
+            <button onclick="sendSelection()">Update</button>
+        </div>
+
+        <div class="img-row-wrapper">
+            <div id="Hereford-Instances" class="img-container">
+                <div id="Hereford-Base">
+                    <img class="base-img" src="Hereford_BaseMap/Hereford_Mapping_BaseMapImage.png">
+                </div>
+                <div id="Hereford-Instance-Material">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Instance_Counts/Hereford_Instance_Count_Type_Material.png">
+                </div>
+                <div id="Hereford-Instance-Production">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Instance_Counts/Hereford_Instance_Count_Type_Production.png">
+                </div>
+                <div id="Hereford-Instance-Association">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Instance_Counts/Hereford_Instance_Count_Type_Association.png">
+                </div>
+                <div id="Hereford-Instance-Exchange">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Instance_Counts/Hereford_Instance_Count_Type_Exchange.png">
+                </div>
+            </div>
+            <div id="Mercator-Instances" class="img-container" style="margin-top: 25%;">
+                <div id="Mercator-Base">
+                    <img class="base-img" src="Mercator_BaseMap/Mercator_BaseMap.png">
+                </div>
+                <div id="Mercator-Instance-Material">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Instance_Counts/Mercator_Instance_Counts_Type_Material.png">
+                </div>
+                <div id="Mercator-Instance-Production">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Instance_Counts/Mercator_Instance_Counts_Type_Production.png">
+                </div>
+                <div id="Mercator-Instance-Association">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Instance_Counts/Mercator_Instance_Counts_Type_Association.png">
+                </div>
+                <div id="Mercator-Instance-Exchange">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Instance_Counts/Mercator_Instance_Counts_Type_Exchange.png">
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        function sendSelection() {
+            let currentSelection = document.getElementById("MapTypeSelector").value;
+            updateMapTypeTitle(currentSelection);
+            updateOverlay(currentSelection);
+            
+        }
+
+        function updateMapTypeTitle(typeSelected) {
+            let typeTitleLabel = document.getElementById("CurrentMapTypeTitle");
+            let newTypeTitleText = `<h1>Map of ${typeSelected} Instances<h1>`;
+            typeTitleLabel.innerHTML = newTypeTitleText;
+
+        }
+
+        function resetOverlays() {
+            const overlayImages = document.getElementsByClassName("overlay-img")
+
+            for (let i = 0; i < overlayImages.length; i++) {
+                overlayImages[i].style.visibility = "hidden";
+            }
+        }
+
+
+        function updateOverlay(typeSelected) {  
+            resetOverlays(); 
+            
+            let overlayHerefordId = `Hereford-Instance-${typeSelected}`;
+            let overlayMercatorId = `Mercator-Instance-${typeSelected}`;
+
+            let overlayHerefordDiv = document.getElementById(overlayHerefordId);
+            let overlayHerefordImg = overlayHerefordDiv.getElementsByTagName('img')[0];
+
+            let overlayMercatorDiv = document.getElementById(overlayMercatorId);
+            let overlayMercatorImg = overlayMercatorDiv.getElementsByTagName('img')[0];
+
+            overlayHerefordImg.style.visibility = 'visible';
+            overlayMercatorImg.style.visibility = 'visible';
+
+
+        }
+    </script>
+</html>

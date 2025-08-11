@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="allStyles.css"> 
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a class="navbar-curr" href="DressTerms.html">Localizations</a>
+            <a href="InstanceCounts.html">Heat Maps</a>
+            <a href="Networks.html">Networks</a>
+        </div>
+        <div>
+            <label id="CurrentMapTypeTitle" style="text-align: center"><h1>Dress Term Maps</h1></label>
+        </div>
+        <div style="display: block; text-align: center;">
+            <label style="margin-right: 5%;">Select Map Type: </label>
+            <select id="MapTypeSelector">
+                <option value="Amethyst" label="Amethyst">Amethyst</option>
+                <option value="Arras" label="Arras">Arras</option>
+                <option value="Azure" label="Azure">Azure</option>
+                <option value="Beverine" label="Beverine">Beverine</option>
+                <option value="Bleaunt" label="Bleaunt">Bleaunt</option>
+                <option value="Buckskin" label="Buckskin">Buckskin</option>
+                <option value="Calcedoine" label="Calcedoine">Calcedoine</option>
+                <option value="Camaca" label="Camaca">Camaca</option>
+                <option value="Ciclatoun" label="Ciclatoun">Ciclatoun</option>
+                <option value="ClothofArras" label="Cloth of Arras">Cloth of Arras</option>
+                <option value="ClothofRennes" label="Cloth of Rennes">Cloth of Rennes</option>
+                <option value="Coral" label="Coral">Coral</option>
+                <option value="Corse" label="Corse">Corse</option>
+                <option value="Cotton1" label="Cotton 1">Cotton 1</option>
+                <option value="Crocus" label="Crocus">Crocus</option>
+                <option value="Damask" label="Damask">Damask</option>
+                <option value="Diamond" label="Diamond">Diamond</option>
+                <option value="Diaper2" label="Diaper 2">Diaper 2</option>
+                <option value="Emeraude" label="Emeraude">Emeraude</option>
+                <option value="Ermine" label="Ermine">Ermine</option>
+                <option value="Flax" label="Flax">Flax</option>
+                <option value="Fleurdelis" label="Fleur-de-lis">Fleur-de-lis</option>
+                <option value="Frieze" label="Frieze">Frieze</option>
+                <option value="Garnet" label="Garnet">Garnet</option>
+                <option value="Garter" label="Garter">Garter</option>
+                <option value="Grain" label="Grain">Grain</option>
+                <option value="Grey" label="Grey">Grey</option>
+                <option value="Gris" label="Gris">Gris</option>
+                <option value="Hemp" label="Hemp">Hemp</option>
+                <option value="Imperial" label="Imperial">Imperial</option>
+                <option value="Inde" label="Inde">Inde</option>
+                <option value="Jacinth" label="Jacinth">Jacinth</option>
+                <option value="Kendal" label="Kendal">Kendal</option>
+                <option value="Lawn" label="Lawn">Lawn</option>
+                <option value="Lilie" label="Lilie">Lilie</option>
+                <option value="Line1" label="Line 1">Line 1</option>
+                <option value="Linen" label="Linen">Linen</option>
+                <option value="Miniver" label="Miniver">Miniver</option>
+                <option value="Napkin" label="Napkin">Napkin</option>
+                <option value="Olfend" label="Olfend">Olfend</option>
+                <option value="Pall" label="Pall">Pall</option>
+                <option value="Pavis" label="Pavis">Pavis</option>
+                <option value="Pavise" label="Pavise">Pavise</option>
+                <option value="Perse" label="Perse">Perse</option>
+                <option value="Plunket" label="Plunket">Plunket</option>
+                <option value="Purple" label="Purple">Purple</option>
+                <option value="PurplePall" label="Purple Pall">Purple Pall</option>
+                <option value="Purpure" label="Purpure">Purpure</option>
+                <option value="Raines" label="Raines">Raines</option>
+                <option value="Ray" label="Ray">Ray</option>
+                <option value="Ruby" label="Ruby">Ruby</option>
+                <option value="Sable" label="Sable">Sable</option>
+                <option value="Samite" label="Samite">Samite</option>
+                <option value="Saphir" label="Saphir">Saphir</option>
+                <option value="Satin" label="Satin">Satin</option>
+                <option value="Scarlet" label="Scarlet">Scarlet</option>
+                <option value="Sendal" label="Sendal">Sendal</option>
+                <option value="Silk" label="Silk">Silk</option>
+                <option value="SilkThread" label="Silk Thread">Silk Thread</option>
+                <option value="Silken" label="Silken">Silken</option>
+                <option value="Slavin" label="Slavin">Slavin</option>
+                <option value="Smaragdin" label="Smaragdin">Smaragdin</option>
+                <option value="Solsecle" label="Solsecle">Solsecle</option>
+                <option value="Taffeta" label="Taffeta">Taffeta</option>
+                <option value="Tars" label="Tars">Tars</option>
+                <option value="TurkieClothes" label="Turkie Clothes">TurkieClothes</option>
+                <option value="Vair" label="Vair">Vair</option>
+                <option value="Valence" label="Valence">Valence</option>
+                <option value="Velvet" label="Velvet">Velvet</option>
+                <option value="Violet" label="Violet">Violet</option>
+                <option value="Woad" label="Woad">Woad</option>
+                <option value="Woader" label="Woader">Woader</option>
+
+            </select>
+            <button onclick="sendSelection()">Update</button>
+        </div>
+
+        <div class="img-row-wrapper">
+            <div id="Hereford-Terms" class="img-container">
+                <div id="Hereford-Base">
+                    <img class="base-img" src="Hereford_BaseMap/Hereford_Mapping_BaseMapImage.png">
+                </div>
+                <div id="Hereford-Term-Amethyst">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Amethyst.png">
+                </div>
+                <div id="Hereford-Term-Arras">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Arras.png">
+                </div>
+                <div id="Hereford-Term-Azure">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Azure.png">
+                </div>
+                <div id="Hereford-Term-Beverine">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Beverine.png">
+                </div>
+                <div id="Hereford-Term-Bleaunt">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Bleaunt.png">
+                </div>
+                <div id="Hereford-Term-Buckskin">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Buckskin.png">
+                </div>
+                <div id="Hereford-Term-Calcedoine">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Calcedoine.png">
+                </div>
+                <div id="Hereford-Term-Camaca">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Camaca.png">
+                </div>
+                <div id="Hereford-Term-Ciclatoun">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Ciclatoun.png">
+                </div>
+                <div id="Hereford-Term-ClothofArras">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_ClothofArras.png">
+                </div>
+                <div id="Hereford-Term-ClothofRennes">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_ClothofRennes.png">
+                </div>
+                <div id="Hereford-Term-Coral">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Coral.png">
+                </div>
+                <div id="Hereford-Term-Corse">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Corse.png">
+                </div>
+                <div id="Hereford-Term-Cotton1">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Cotton1.png">
+                </div>
+                <div id="Hereford-Term-Crocus">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Crocus.png">
+                </div>
+                <div id="Hereford-Term-Damask">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Damask.png">
+                </div>
+                <div id="Hereford-Term-Diamond">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Diamond.png">
+                </div>
+                <div id="Hereford-Term-Diaper2">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Diaper2.png">
+                </div>
+                <div id="Hereford-Term-Emeraude">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Emeraude.png">
+                </div>
+                <div id="Hereford-Term-Ermine">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Ermine.png">
+                </div>
+                <div id="Hereford-Term-Flax">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Flax.png">
+                </div>
+                <div id="Hereford-Term-Fleurdelis">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Fleurdelis.png">
+                </div>
+                <div id="Hereford-Term-Frieze">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Frieze.png">
+                </div>
+                <div id="Hereford-Term-Garnet">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Garnet.png">
+                </div>
+                <div id="Hereford-Term-Garter">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Garter.png">
+                </div>
+                <div id="Hereford-Term-Grain">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Grain.png">
+                </div>
+                <div id="Hereford-Term-Grey">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Grey.png">
+                </div>
+                <div id="Hereford-Term-Gris">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Gris.png">
+                </div>
+                <div id="Hereford-Term-Hemp">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Hemp.png">
+                </div>
+                <div id="Hereford-Term-Imperial">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Imperial.png">
+                </div>
+                <div id="Hereford-Term-Inde">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Inde.png">
+                </div>
+                <div id="Hereford-Term-Jacinth">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Jacinth.png">
+                </div>
+                <div id="Hereford-Term-Kendal">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Kendal.png">
+                </div>
+                <div id="Hereford-Term-Lawn">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Lawn.png">
+                </div>
+                <div id="Hereford-Term-Lilie">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Lilie.png">
+                </div>
+                <div id="Hereford-Term-Line1">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Line1.png">
+                </div>
+                <div id="Hereford-Term-Linen">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Linen.png">
+                </div>
+                <div id="Hereford-Term-Margarita">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Margarita.png">
+                </div>
+                <div id="Hereford-Term-Miniver">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Miniver.png">
+                </div>
+                <div id="Hereford-Term-Napkin">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Napkin.png">
+                </div>
+                <div id="Hereford-Term-Olfend">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Olfend.png">
+                </div>
+                <div id="Hereford-Term-Pall">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Pall.png">
+                </div>
+                <div id="Hereford-Term-Pavis">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Pavis.png">
+                </div>
+                <div id="Hereford-Term-Pavise">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Pavise.png">
+                </div>
+                <div id="Hereford-Term-Plunket">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Plunket.png">
+                </div>
+                <div id="Hereford-Term-Purple">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Purple.png">
+                </div>
+                <div id="Hereford-Term-PurplePall">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_PurplePall.png">
+                </div>
+                <div id="Hereford-Term-Purpure">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Purpure.png">
+                </div>
+                <div id="Hereford-Term-Raines">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Raines.png">
+                </div>
+                <div id="Hereford-Term-Ray">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Ray.png">
+                </div>
+                <div id="Hereford-Term-Ruby">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Ruby.png">
+                </div>
+                <div id="Hereford-Term-Sable">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Sable.png">
+                </div>
+                <div id="Hereford-Term-Samite">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Samite.png">
+                </div>
+                <div id="Hereford-Term-Saphir">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Saphir.png">
+                </div>
+                <div id="Hereford-Term-Satin">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Satin.png">
+                </div>
+                <div id="Hereford-Term-Saumbu">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Saumbu.png">
+                </div>
+                <div id="Hereford-Term-Scarlet">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Scarlet.png">
+                </div>
+                <div id="Hereford-Term-Sendal">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Sendal.png">
+                </div>
+                <div id="Hereford-Term-Silk">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Silk.png">
+                </div>
+                <div id="Hereford-Term-Silken">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Silken.png">
+                </div>
+                <div id="Hereford-Term-SilkThread">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_SilkThread.png">
+                </div>
+                <div id="Hereford-Term-Slavin">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Slavin.png">
+                </div>
+                <div id="Hereford-Term-Smaragdin">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Smaragdin.png">
+                </div>
+                <div id="Hereford-Term-Solsecle">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Solsecle.png">
+                </div>
+                <div id="Hereford-Term-Taffeta">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Taffeta.png">
+                </div>
+                <div id="Hereford-Term-Tars">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Tars.png">
+                </div>
+                <div id="Hereford-Term-TurkieClothes">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_TurkieClothes.png">
+                </div>
+                <div id="Hereford-Term-Vair">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Vair.png">
+                </div>
+                <div id="Hereford-Term-Valence">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Valence.png">
+                </div>
+                <div id="Hereford-Term-Velvet">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Velvet.png">
+                </div>
+                <div id="Hereford-Term-Violet">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Violet.png">
+                </div>
+                <div id="Hereford-Term-Woad">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Woad.png">
+                </div>
+                <div id="Hereford-Term-Woader">
+                    <img class="overlay-img" loading="lazy" src="Hereford_Terms/Hereford_Woader.png">
+                </div>
+            </div>
+
+
+            <div id="Mercator-Terms" class="img-container" style="margin-top: 25%;">
+                <div id="Mercator-Base">
+                    <img class="base-img" src="Mercator_BaseMap/Mercator_BaseMap.png">
+                </div>
+                <div id="Mercator-Term-Amethyst">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Amethyst.png">
+                </div>
+                <div id="Mercator-Term-Arras">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Arras.png">
+                </div>
+                <div id="Mercator-Term-Azure">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Azure.png">
+                </div>
+                <div id="Mercator-Term-Beverine">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Beverine.png">
+                </div>
+                <div id="Mercator-Term-Bleaunt">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Bleaunt.png">
+                </div>
+                <div id="Mercator-Term-Buckskin">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Buckskin.png">
+                </div>
+                <div id="Mercator-Term-Calcedoine">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Calcedoine.png">
+                </div>
+                <div id="Mercator-Term-Camaca">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Camaca.png">
+                </div>
+                <div id="Mercator-Term-Ciclatoun">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Ciclatoun.png">
+                </div>
+                <div id="Mercator-Term-ClothofArras">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_ClothOfArras.png">
+                </div>
+                <div id="Mercator-Term-ClothofRennes">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_ClothOfRennes.png">
+                </div>
+                <div id="Mercator-Term-Coral">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Coral.png">
+                </div>
+                <div id="Mercator-Term-Corse">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Corse.png">
+                </div>
+                <div id="Mercator-Term-Cotton1">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Cotton1.png">
+                </div>
+                <div id="Mercator-Term-Crocus">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Crocus.png">
+                </div>
+                <div id="Mercator-Term-Damask">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Damask.png">
+                </div>
+                <div id="Mercator-Term-Diamond">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Diamond.png">
+                </div>
+                <div id="Mercator-Term-Diaper2">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Diaper2.png">
+                </div>
+                <div id="Mercator-Term-Emeraude">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Emeraude.png">
+                </div>
+                <div id="Mercator-Term-Ermine">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Ermine.png">
+                </div>
+                <div id="Mercator-Term-Flax">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Flax.png">
+                </div>
+                <div id="Mercator-Term-Fleurdelis">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Fleurdelis.png">
+                </div>
+                <div id="Mercator-Term-Frieze">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Frieze.png">
+                </div>
+                <div id="Mercator-Term-Garnet">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Garnet.png">
+                </div>
+                <div id="Mercator-Term-Garter">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Garter.png">
+                </div>
+                <div id="Mercator-Term-Grain">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Grain.png">
+                </div>
+                <div id="Mercator-Term-Grey">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Grey.png">
+                </div>
+                <div id="Mercator-Term-Gris">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Gris.png">
+                </div>
+                <div id="Mercator-Term-Hemp">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Hemp.png">
+                </div>
+                <div id="Mercator-Term-Imperial">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Imperial.png">
+                </div>
+                <div id="Mercator-Term-Inde">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Inde.png">
+                </div>
+                <div id="Mercator-Term-Jacinth">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Jacinth.png">
+                </div>
+                <div id="Mercator-Term-Kendal">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Kendal.png">
+                </div>
+                <div id="Mercator-Term-Lawn">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Lawn.png">
+                </div>
+                <div id="Mercator-Term-Lilie">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Lilie.png">
+                </div>
+                <div id="Mercator-Term-Line1">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Line1.png">
+                </div>
+                <div id="Mercator-Term-Linen">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Linen.png">
+                </div>
+                <div id="Mercator-Term-Margarita">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Margarita.png">
+                </div>
+                <div id="Mercator-Term-Miniver">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Miniver.png">
+                </div>
+                <div id="Mercator-Term-Napkin">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Napkin.png">
+                </div>
+                <div id="Mercator-Term-Olfend">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Olfend.png">
+                </div>
+                <div id="Mercator-Term-Pall">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Pall.png">
+                </div>
+                <div id="Mercator-Term-Pavis">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Pavis.png">
+                </div>
+                <div id="Mercator-Term-Pavise">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Pavise.png">
+                </div>
+                <div id="Mercator-Term-Plunket">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Plunket.png">
+                </div>
+                <div id="Mercator-Term-Purple">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Purple.png">
+                </div>
+                <div id="Mercator-Term-PurplePall">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_PurplePall.png">
+                </div>
+                <div id="Mercator-Term-Purpure">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Purpure.png">
+                </div>
+                <div id="Mercator-Term-Raines">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Raines.png">
+                </div>
+                <div id="Mercator-Term-Ray">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Ray.png">
+                </div>
+                <div id="Mercator-Term-Ruby">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Ruby.png">
+                </div>
+                <div id="Mercator-Term-Sable">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Sable.png">
+                </div>
+                <div id="Mercator-Term-Samite">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Samite.png">
+                </div>
+                <div id="Mercator-Term-Saphir">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Saphir.png">
+                </div>
+                <div id="Mercator-Term-Satin">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Satin.png">
+                </div>
+                <div id="Mercator-Term-Saumbu">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Saumbu.png">
+                </div>
+                <div id="Mercator-Term-Scarlet">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Scarlet.png">
+                </div>
+                <div id="Mercator-Term-Sendal">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Sendal.png">
+                </div>
+                <div id="Mercator-Term-Silk">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Silk.png">
+                </div>
+                <div id="Mercator-Term-Silken">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Silken.png">
+                </div>
+                <div id="Mercator-Term-SilkThread">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_SilkenThread.png">
+                </div>
+                <div id="Mercator-Term-Slavin">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Slavin.png">
+                </div>
+                <div id="Mercator-Term-Smaragdin">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Smaragdin.png">
+                </div>
+                <div id="Mercator-Term-Solsecle">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Solsecle.png">
+                </div>
+                <div id="Mercator-Term-Taffeta">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Taffeta.png">
+                </div>
+                <div id="Mercator-Term-Tars">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Tars.png">
+                </div>
+                <div id="Mercator-Term-TurkieClothes">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_TurkieClothes.png">
+                </div>
+                <div id="Mercator-Term-Vair">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Vair.png">
+                </div>
+                <div id="Mercator-Term-Valence">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Valence.png">
+                </div>
+                <div id="Mercator-Term-Velvet">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Velvet.png">
+                </div>
+                <div id="Mercator-Term-Violet">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Violet.png">
+                </div>
+                <div id="Mercator-Term-Woad">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Woad.png">
+                </div>
+                <div id="Mercator-Term-Woader">
+                    <img class="overlay-img" loading="lazy" src="Mercator_Terms/Mercator_Woader.png">
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function sendSelection() {
+            let currentSelection = document.getElementById("MapTypeSelector").value;
+            updateMapTypeTitle(currentSelection);
+            updateOverlay(currentSelection);
+            
+        }
+
+        function updateMapTypeTitle(typeSelected) {
+            let typeTitleLabel = document.getElementById("CurrentMapTypeTitle");
+            let newTypeTitleText = `<h1>Map of ${typeSelected}<h1>`;
+            typeTitleLabel.innerHTML = newTypeTitleText;
+
+        }
+
+        function resetOverlays() {
+            const overlayImages = document.getElementsByClassName("overlay-img")
+
+            for (let i = 0; i < overlayImages.length; i++) {
+                overlayImages[i].style.visibility = "hidden";
+            }
+        }
+
+
+        function updateOverlay(typeSelected) {  
+            resetOverlays(); 
+            
+            let overlayHerefordId = `Hereford-Term-${typeSelected}`;
+            let overlayMercatorId = `Mercator-Term-${typeSelected}`;
+
+            let overlayHerefordDiv = document.getElementById(overlayHerefordId);
+            let overlayHerefordImg = overlayHerefordDiv.getElementsByTagName('img')[0];
+
+            let overlayMercatorDiv = document.getElementById(overlayMercatorId);
+            let overlayMercatorImg = overlayMercatorDiv.getElementsByTagName('img')[0];
+
+            overlayHerefordImg.style.visibility = 'visible';
+            overlayMercatorImg.style.visibility = 'visible';
+
+
+        }
+    </script>
+    </html>

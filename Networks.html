@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="allStyles.css"> 
+    </head>
+    
+    <body onload="updateOverlay('ALL')">
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="DressTerms.html">Localizations</a>
+            <a href="InstanceCounts.html">Heat Maps</a>
+            <a class="navbar-curr" href="Networks.html">Networks</a>
+        </div>
+
+        <div>
+            <label id="CurrentMapTypeTitle" style="text-align: center"><h1>Instance Count Networks</h1></label>
+        </div>
+        <div style="display:block; text-align: center; ">
+            <label style="margin-right: 5%;">Select LALME County/Region: </label>
+            <select id="MapTypeSelector">
+                <option value="ALL">All</option>
+                <option value="BRK">Berkshire</option>
+                <option value="CHS">Cheshire</option>
+                <option value="DER">Derbyshire</option>
+                <option value="DOR">Dorset</option>
+                <option value="ESX">Essex</option>
+                <option value="GLO">Gloucestershire</option>
+                <option value="LAN">Lancashire</option>
+                <option value="LIN">Lincolnshire</option>
+                <option value="LON">London</option>
+                <option value="MID">Middlesex</option>
+                <option value="NFK">Norfolk</option>
+                <option value="NOR">Northern England</option>
+                <option value="NOT">Nottinghamshire</option>
+                <option value="RUT">Rutland</option>
+                <option value="STF">Staffordshire</option>
+                <option value="WOR">Worcestershire</option>
+                <option value="YNR">Yorkshire, North Riding</option>
+                <option value="YWR">Yorkshire, West Riding</option>
+            </select>
+            <button onclick="sendSelection()">Update</button>
+        </div>
+
+        <div class="img-row-wrapper">
+            <div id="Raw-Counts" class="img-container">
+                <div id="Raw-ALL">
+                    <img class="overlay-img" style="visibility: visible;" src="Raw_Graphs/Raw_ALL.png">
+                </div>
+                <div id="Raw-BRK">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_BRK.png">
+                </div>
+                <div id="Raw-CHS">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_CHS.png">
+                </div>
+                <div id="Raw-DER">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_DER.png">
+                </div>
+                <div id="Raw-DOR">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_DOR.png">
+                </div>
+                <div id="Raw-ESX">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_ESX.png">
+                </div>
+                <div id="Raw-GLO">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_GLO.png">
+                </div>
+                <div id="Raw-LAN">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_LAN.png">
+                </div>
+                <div id="Raw-LIN">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_LIN.png">
+                </div>
+                <div id="Raw-LON">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_LON.png">
+                </div>
+                <div id="Raw-MID">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_MID.png">
+                </div>
+                <div id="Raw-NFK">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_NFK.png">
+                </div>
+                <div id="Raw-NOR">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_NOR.png">
+                </div>
+                <div id="Raw-NOT">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_NOT.png">
+                </div>
+                <div id="Raw-RUT">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_RUT.png">
+                </div>
+                <div id="Raw-STF">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_STF.png">
+                </div>
+                <div id="Raw-WOR">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_WOR.png">
+                </div>
+                <div id="Raw-YNR">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_YNR.png">
+                </div>
+                <div id="Raw-YWR">
+                    <img class="overlay-img" loading="lazy" src="Raw_Graphs/Raw_YWR.png">
+                </div>
+            </div>
+            <div id="Inverse-Counts" class="img-container">
+                <div id="Inverse-ALL">
+                    <img class="overlay-img" src="Inverse_Graphs/Inverse_ALL.png">
+                </div>
+                <div id="Inverse-BRK">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_BRK.png">
+                </div>
+                <div id="Inverse-CHS">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_CHS.png">
+                </div>
+                <div id="Inverse-DER">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_DER.png">
+                </div>
+                <div id="Inverse-DOR">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_DOR.png">
+                </div>
+                <div id="Inverse-ESX">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_ESX.png">
+                </div>
+                <div id="Inverse-GLO">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_GLO.png">
+                </div>
+                <div id="Inverse-LAN">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_LAN.png">
+                </div>
+                <div id="Inverse-LIN">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_LIN.png">
+                </div>
+                <div id="Inverse-LON">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_LON.png">
+                </div>
+                <div id="Inverse-MID">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_MID.png">
+                </div>
+                <div id="Inverse-NFK">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_NFK.png">
+                </div>
+                <div id="Inverse-NOR">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_NOR.png">
+                </div>
+                <div id="Inverse-NOT">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_NOT.png">
+                </div>
+                <div id="Inverse-RUT">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_RUT.png">
+                </div>
+                <div id="Inverse-STF">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_STF.png">
+                </div>
+                <div id="Inverse-WOR">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_WOR.png">
+                </div>
+                <div id="Inverse-YNR">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_YNR.png">
+                </div>
+                <div id="Inverse-YWR">
+                    <img class="overlay-img" loading="lazy" src="Inverse_Graphs/Inverse_YWR.png">
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        function sendSelection() {
+            let currentSelection = document.getElementById("MapTypeSelector").value;
+            updateMapTypeTitle(currentSelection);
+            updateOverlay(currentSelection);
+            
+        }
+
+        function updateMapTypeTitle(typeSelected) {
+            let typeTitleLabel = document.getElementById("CurrentMapTypeTitle");
+            let newTypeTitleText = `<h1>Map of ${typeSelected} Instances<h1>`;
+            typeTitleLabel.innerHTML = newTypeTitleText;
+
+        }
+
+        function resetOverlays() {
+            const overlayImages = document.getElementsByClassName("overlay-img")
+
+            for (let i = 0; i < overlayImages.length; i++) {
+                overlayImages[i].style.visibility = "hidden";
+            }
+        }
+
+
+        function updateOverlay(typeSelected) {  
+            resetOverlays(); 
+            
+            let overlayRawId = `Raw-${typeSelected}`;
+            let overlayInverseId = `Inverse-${typeSelected}`;
+
+            let overlayRawDiv = document.getElementById(overlayRawId);
+            let overlayRawImg = overlayRawDiv.getElementsByTagName('img')[0];
+
+            let overlayInverseDiv = document.getElementById(overlayInverseId);
+            let overlayInverseImg = overlayInverseDiv.getElementsByTagName('img')[0];
+
+            overlayRawImg.style.visibility = 'visible';
+            overlayInverseImg.style.visibility = 'visible';
+
+
+        }
+    </script>
+</html>
