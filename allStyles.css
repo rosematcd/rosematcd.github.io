@@ -33,6 +33,7 @@ body {
 .navbar {
     background-color: darkslategray;
     overflow: hidden;
+    width: 100%;
 }
 
 .navbar a {
@@ -52,4 +53,45 @@ body {
 a.navbar-curr {
     background-color: white;
     color: black;
+}
+
+.legend-wrapper {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} 
+
+#dress-legend .legend-bar {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    padding: 10px;
+}
+
+#count-legend .legend-bar{
+    display: grid;
+    grid-template-columns: 20% 16% 16% 16% 16% 16%;
+    padding: 10px;
+} 
+
+.legend-title {
+    font-weight: bold;
+}
+
+.legend-item {
+    display: grid; 
+    grid-template-columns: 30px 70px;
+}
+
+.legend-item div.legend-color {
+    width: 25px; 
+    height: 25px; 
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.legend-item div.legend-text {
+    text-align: left;
+    margin-left: 5px;
 }
