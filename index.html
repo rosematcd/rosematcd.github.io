@@ -1,9 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Test Website for Maps</title>
+        <link rel="stylesheet" type="text/css" href="allStyles.css"> 
     </head>
-    <body>
-        Some text here
+    
+    <body onload="setAllLayersInvisible()">
+        <div class="navbar">
+            <a class="navbar-curr" href="index.html">Home</a>
+            <a href="DressTerms.html">Localizations</a>
+            <a href="InstanceCounts.html">Heat Maps</a>
+            <a href="Networks.html">Networks</a>
+        </div>
+        <h1 style="text-align:center;">Extracting and Mapping Dress Terms from Late Medieval English Verse</h1>
+        <div class="img-row-wrapper">
+            <div>
+                Some copy on the project and web functionality here
+            </div>
+            <div>
+                <div>
+                    <label id="CurrentMapTypeTitle" style="text-align: center"><h3>Hereford Annotations</h3></label>
+                </div>
+                <div style="text-align: center; z-index: 2;">
+                    <button onclick="toggleLayerVisibility()">Toggle Visibility</button>
+                </div>
+                <div class="img-container" style="margin-top: -10%; z-index: -1;">
+                    <div id="Hereford-Base">
+                        <img class="base-img" width=40% src="Hereford_BaseMap/Hereford_Mapping_BaseMapImage.png">
+                    </div>
+                    <div id="Hereford-Countries">
+                        <img class="overlay-img" width="40%" src="Hereford_BaseMap/Hereford_Mapping_AnnotationsAll.png">
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
+    <script>
+        
+    function toggleLayerVisibility() {
+        let overlayHerefordDiv = document.getElementById("Hereford-Countries");
+        let overlayHerefordImg = overlayHerefordDiv.getElementsByTagName('img')[0]
+
+
+        if (overlayHerefordImg.style.visibility == 'visible') {
+            overlayHerefordImg.style.visibility = 'hidden';
+        } 
+        else {
+            overlayHerefordImg.style.visibility = 'visible';
+        }
+    }
+    </script>
 </html>
