@@ -7,7 +7,7 @@
     <body>
         <div class="navbar">
             <a href="index.html">Home</a>
-            <a href="DressTerms.html">Localizations</a>
+            <a href="DressTerms.html">Localisations</a>
             <a class="navbar-curr" href="InstanceCounts.html">Heat Maps</a>
             <a href="Networks.html">Networks</a>
         </div>
@@ -15,15 +15,17 @@
         <div>
             <label id="CurrentMapTypeTitle" style="text-align: center"><h1>Instance Count Maps</h1></label>
         </div>
-        <div style="display:block; text-align: center; z-index: 2;">
-            <label style="margin-right: 5%;">Select Map Type: </label>
-            <select id="MapTypeSelector">
-                <option value="Material" >Material</option>
-                <option value="Production" >Production</option>
-                <option value="Association" >Association</option>
-                <option value="Exchange" >Exchange</option>
-            </select>
-            <button onclick="sendSelection()">Update</button>
+        <div style="text-align: center; z-index: 2;">
+            <div>
+                <label style="margin-right: 5%;">Select Map Type: </label>
+                <select id="MapTypeSelector">
+                    <option value="Material" >Material</option>
+                    <option value="Production" >Production</option>
+                    <option value="Association" >Association</option>
+                    <option value="Exchange" >Exchange</option>
+                </select>
+                <button onclick="sendSelection()">Update</button>
+            </div>
         </div>
 
         <div class="img-row-wrapper" style="margin-top: -8%;">
@@ -59,6 +61,31 @@
                 </div>
                 <div id="Mercator-Instance-Exchange">
                     <img class="overlay-img" loading="lazy" src="Mercator_Instance_Counts/Mercator_Instance_Counts_Type_Exchange.png">
+                </div>
+            </div>
+        </div>
+        <div id="count-legend" class="legend-wrapper">
+            <div class="legend-bar">
+                <div class="legend-title">Legend</div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #fff8b2;"></div>
+                    <div class="legend-text">1 - 10</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #fecc5c;"></div>
+                    <div class="legend-text">10 - 20</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #fd8d3c;"></div>
+                    <div class="legend-text">20 - 30</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f03b20;"></div>
+                    <div class="legend-text">30 - 40 </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #bd0026;"></div>
+                    <div class="legend-text">>40</div>
                 </div>
             </div>
         </div>
